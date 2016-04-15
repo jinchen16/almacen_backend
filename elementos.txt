@@ -16,13 +16,13 @@ Registrar Usuarios:
 
 * Estudiante: 
 http://localhost:4000/registrar/Usuario/juan/orejuela/2120487/orejuelajd@gmail.com/123/Estudiante
-https://almacen-elementos-orejuelajd.c9users.io:8081/registrar/Usuario/juan/orejuela/2120487/orejuelajd@gmail.com/123/Estudiante
+https://almacen-elementos-orejuelajd.c9users.io/registrar/Usuario/juan/orejuela/2120487/orejuelajd@gmail.com/123/Estudiante
 
 * Almacenista: 
 http://localhost:4000/registrar/Usuario/felix/ramirez/2120481/felix@gmail.com/1234/Almacenista
-https://almacen-elementos-orejuelajd.c9users.io:8081/registrar/Usuario/felix/ramirez/2120481/felix@gmail.com/1234/Almacenista
+https://almacen-backend-orejuelajd.c9users.io/registrar/Usuario/felix/ramirez/2120481/felix@gmail.com/1234/Almacenista
 
 * Funcionario: 
 http://localhost:4000/registrar/Usuario/jairo/ramos/2120480/jairo@gmail.com/12345/Funcionario
-https://almacen-elementos-orejuelajd.c9users.io:8081/registrar/Usuario/jairo/ramos/2120480/jairo@gmail.com/12345/Funcionario
+https://almacen-elementos-orejuelajd.c9users.io/registrar/Usuario/jairo/ramos/2120480/jairo@gmail.com/12345/Funcionario
 
