@@ -1,0 +1,28 @@
+db.elementos.insert([
+	{nombre:"Multímetro Digital", estado:"disponible"}, 
+	{nombre:"Fuente de Voltaje DC", estado:"disponible"}, 
+	{nombre:"Juego de Terminales en Mesa", estado:"disponible"}, 
+	{nombre:"Cable de Conexión", estado:"disponible"}, 
+	{nombre:"Protoboard", estado: "disponible"}, 
+	{nombre:"Generador de Funciones", estado:"disponible"}, 
+	{nombre:"Osciloscopio Digital", estado:"disponible"}, 
+	{nombre:"Punta Lógica", estado:"disponible"}, 
+	{nombre:"Medidor LCR", estado:"disponible"}
+]);
+
+
+Registrar Usuarios:
+===================
+
+* Estudiante: 
+http://localhost:4000/registrar/Usuario/juan/orejuela/2120487/orejuelajd@gmail.com/123/Estudiante
+https://almacen-elementos-orejuelajd.c9users.io:8081/registrar/Usuario/juan/orejuela/2120487/orejuelajd@gmail.com/123/Estudiante
+
+* Almacenista: 
+http://localhost:4000/registrar/Usuario/felix/ramirez/2120481/felix@gmail.com/1234/Almacenista
+https://almacen-elementos-orejuelajd.c9users.io:8081/registrar/Usuario/felix/ramirez/2120481/felix@gmail.com/1234/Almacenista
+
+* Funcionario: 
+http://localhost:4000/registrar/Usuario/jairo/ramos/2120480/jairo@gmail.com/12345/Funcionario
+https://almacen-elementos-orejuelajd.c9users.io:8081/registrar/Usuario/jairo/ramos/2120480/jairo@gmail.com/12345/Funcionario
+
