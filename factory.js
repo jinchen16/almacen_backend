@@ -7,7 +7,7 @@ module.exports.createObjectWithName = function(coleccion, v1, v2, v3, v4, v5, v6
 		obj = new Elementos({nombre:v1, estado:v2});
 	}
 	else if(coleccion == 'Prestamos'){
-		obj = new Prestamos({idUsuario:v1, fechaEntrega:v2, fechaVencimiento:v3, estado:v4});
+		obj = new Prestamos({idUsuario:v1, fechaEntrega:v2, fechaVencimiento:v3, estado:v4, elementos:v5});
 	}
 	else if(coleccion == 'Usuario'){
 		obj = new Usuario({nombre:v1, apellido:v2, codigo:v3, correo:v4, contrasena:v5, rol:v6});

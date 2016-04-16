@@ -240,3 +240,41 @@ module.exports.login = function (request,response) {
 		}
 	}
 }
+
+//Para buscar según dos parámetros
+module.exports.buscarPrestamo = function (request,response) {
+	var tabla = request.params.collection;
+	var param1 = request.params.param1;
+	var v1 = request.params.v1;
+	var param2 = request.params.param2;
+	var v2 = request.params.v2;
+
+	var object = factory.findCollectionByName(tabla);
+	var existe = false;
+
+	if (object !== null)
+	{
+		existe = true;
+	}
+
+	if ( existe == true)
+	{
+		object.find().where(param1).equals(v1).where(param2).equals(v2).exec(buscarDatos);
+	}
+	else
+	{
+		return response.json({status:"fail", name:tabla, description:"COLLECTION_DONT_EXIST", value:[{}]});
+	}
+
+	function buscarDatos(err,items)
+	{
+		if(err)
+		{
+			return response.json({status:"fail", name:tabla, description:"COLLECTION_BAD_QUERY", value:[{}]});
+		}
+		else
+		{
+			return response.json({status:"ok", name:tabla, description:"COLLECTION_QUERY_OK", value:items});
+		}
+	}
+}
