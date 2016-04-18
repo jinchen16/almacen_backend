@@ -88,3 +88,19 @@ module.exports.pushObject = function(name, key, data, service){
 			}});
 	}
 }
+
+module.exports.pullObject = function(name, key, data, service){
+	if(name === 'Prestamos'){
+		Prestamos.update({_id:key},
+		{$pull: {"elementos":{'nombre': data.nombre}}},
+		function(err, numAffected){
+			if(err){
+				return service.json({status:"fail", name:name, description:"ID_OBJECT_DONT_EXIST", value:[{}]});	
+			}
+			else{
+				return service.json({ status: "ok", name:name, description:"COLLECTION_QUERY_OK", value: key});
+			}});
+	}
+}
+
+//db.coll.update({<cond to identify document}, {$pull: {'comments': {'id': <id>}}} )

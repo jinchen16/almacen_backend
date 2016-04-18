@@ -297,3 +297,22 @@ module.exports.agregarElemento = function(request, response){
 		return factory.pushObject(tabla, id, data, response);
 	}	
 }
+
+module.exports.eliminarElemento = function(request, response){
+	var tabla = request.params.collection;
+	var id = request.params.id;
+	var v1 = request.params.v1;
+	
+	var objeto = factory.createObjectAux(tabla,v1);
+	
+	if ( objeto == null)
+	{
+		return response.json({status:"fail", name:tabla, description:"COLLECTION_DONT_EXIST", value:[{}]});
+	}
+	else
+	{
+		var data = objeto.toObject();
+		//delete data._id;
+		return factory.pullObject(tabla, id, data, response);
+	}
+}
