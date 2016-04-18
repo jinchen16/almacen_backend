@@ -31,6 +31,7 @@ app.get('/update/:collection/:v1/:v2/:v3/:v4/:v5/:v6/:v7/:id',service.update);
 //app.get("/buscarUsuarios/:collection/:param/:value", service.buscarUsuarios);
 
 app.get('/buscarPrestamo/:collection/:param1/:v1/:param2/:v2',service.buscarPrestamo);
+app.get('/agregarElemento/:collection/:id/:v1',service.agregarElemento);
 
 http.createServer(app).listen(port);
 console.log("Servidor Backend por el puerto " + port);

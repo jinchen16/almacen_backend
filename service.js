@@ -171,7 +171,7 @@ module.exports.registrar = function (request,response) {
 	var v5 = request.params.v5;
 	var v6 = request.params.v6;
 
-  var object = factory.createObjectWithName(tabla,v1,v2,v3,v4,v5,v6);
+  	var object = factory.createObjectWithName(tabla,v1,v2,v3,v4,v5,v6);
 	var existe = false;
 
 	if ( object !== null)
@@ -277,4 +277,23 @@ module.exports.buscarPrestamo = function (request,response) {
 			return response.json({status:"ok", name:tabla, description:"COLLECTION_QUERY_OK", value:items});
 		}
 	}
+}
+
+module.exports.agregarElemento = function(request, response){
+	var tabla = request.params.collection;
+	var id = request.params.id;
+	var v1 = request.params.v1;
+	
+	var objeto = factory.createObjectAux(tabla,v1);
+
+	if ( objeto == null)
+	{
+		return response.json({status:"fail", name:tabla, description:"COLLECTION_DONT_EXIST", value:[{}]});
+	}
+	else
+	{
+		var data = objeto.toObject();
+		delete data._id;
+		return factory.pushObject(tabla, id, data, response);
+	}	
 }

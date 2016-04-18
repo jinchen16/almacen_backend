@@ -7,13 +7,22 @@ module.exports.createObjectWithName = function(coleccion, v1, v2, v3, v4, v5, v6
 		obj = new Elementos({nombre:v1, estado:v2});
 	}
 	else if(coleccion == 'Prestamos'){
-		obj = new Prestamos({idUsuario:v1, fechaEntrega:v2, fechaVencimiento:v3, estado:v4, elementos:v5});
+		obj = new Prestamos({idUsuario:v1, fechaEntrega:v2, fechaVencimiento:v3, estado:v4});
 	}
 	else if(coleccion == 'Usuario'){
 		obj = new Usuario({nombre:v1, apellido:v2, codigo:v3, correo:v4, contrasena:v5, rol:v6});
 	}
 	else if(coleccion == 'Item'){
 		obj = new Item({idPrestamo:v1, idElemento:v2});
+	}
+	return obj;
+}
+
+module.exports.createObjectAux = function(coleccion, v1, v2){
+	var obj = null;
+	
+	if(coleccion == 'Prestamos'){
+		obj = new Elementos({nombre:v1});
 	}
 	return obj;
 }
@@ -63,5 +72,19 @@ module.exports.updateData = function(name, key, data, service)
 		{
 			return service.json({ status: "ok", name:name, description:"COLLECTION_QUERY_OK", value: key});
 		}
+	}
+}
+
+module.exports.pushObject = function(name, key, data, service){
+	if(name === 'Prestamos'){
+		Prestamos.update({_id:key},
+		{$push: {"elementos":data}},
+		function(err, numAffected){
+			if(err){
+				return service.json({status:"fail", name:name, description:"ID_OBJECT_DONT_EXIST", value:[{}]});	
+			}
+			else{
+				return service.json({ status: "ok", name:name, description:"COLLECTION_QUERY_OK", value: key});
+			}});
 	}
 }
