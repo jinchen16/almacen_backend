@@ -24,7 +24,7 @@ app.get('/read/:collection',service.read);
 app.get('/delete/:collection/:param/:value',service.delete);
 
 //Métodos que se está utilizando actualmente
-app.get("/registrar/:collection/:v1/:v2/:v3/:v4/:v5/:v6", service.registrar);
+app.get("/registrar/:collection/:v1/:v2/:v3/:v4/:v5/:v6/:v7", service.registrar);
 app.get("/login/:collection/:codigo/:contrasena", service.login);
 app.get('/read/:collection/:param/:value',service.readX);
 app.get('/update/:collection/:v1/:v2/:v3/:v4/:v5/:v6/:v7/:id',service.update);
@@ -33,6 +33,8 @@ app.get('/update/:collection/:v1/:v2/:v3/:v4/:v5/:v6/:v7/:id',service.update);
 app.get('/buscarPrestamo/:collection/:param1/:v1/:param2/:v2',service.buscarPrestamo);
 app.get('/agregarElemento/:collection/:id/:v1',service.agregarElemento);
 app.get('/eliminarElemento/:collection/:id/:v1',service.eliminarElemento);
+
+app.get('/cambiarCampo/:collection/:id/:v1',service.cambiarCampo);
 
 http.createServer(app).listen(port);
 console.log("Servidor Backend por el puerto " + port);

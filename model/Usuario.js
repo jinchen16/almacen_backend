@@ -7,7 +7,8 @@ var Usuario = new Schema
 	codigo: {type:Number, required:true},
 	correo: {type:String, required:true, maxlength: 140},
   	contrasena: {type:String, required:true},  	 
-  	rol:{type:String, required:true, maxlength: 140}
+  	rol:{type:String, required:true, maxlength: 140},
+  	estado:{type:String, require:true}
 });
 
 module.exports = Usuario;

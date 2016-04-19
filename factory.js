@@ -10,7 +10,7 @@ module.exports.createObjectWithName = function(coleccion, v1, v2, v3, v4, v5, v6
 		obj = new Prestamos({idUsuario:v1, fechaEntrega:v2, fechaVencimiento:v3, estado:v4});
 	}
 	else if(coleccion == 'Usuario'){
-		obj = new Usuario({nombre:v1, apellido:v2, codigo:v3, correo:v4, contrasena:v5, rol:v6});
+		obj = new Usuario({nombre:v1, apellido:v2, codigo:v3, correo:v4, contrasena:v5, rol:v6, estado:v7});
 	}
 	else if(coleccion == 'Item'){
 		obj = new Item({idPrestamo:v1, idElemento:v2});
@@ -23,6 +23,12 @@ module.exports.createObjectAux = function(coleccion, v1, v2){
 	
 	if(coleccion == 'Prestamos'){
 		obj = new Elementos({nombre:v1});
+	}
+	else if(coleccion == 'PrestamosAux'){
+		obj = new Prestamos({estado:v1});
+	}
+	else if(coleccion == 'UsuarioAux'){
+		obj = new Usuario({estado:v1});
 	}
 	return obj;
 }
@@ -100,6 +106,30 @@ module.exports.pullObject = function(name, key, data, service){
 			else{
 				return service.json({ status: "ok", name:name, description:"COLLECTION_QUERY_OK", value: key});
 			}});
+	}
+}
+
+module.exports.changeField = function(name, key, data, service){
+	if(name === 'Prestamos'){
+		Prestamos.update({_id:key},
+			{$set: {"estado":data.estado}},
+			verificar
+		);
+	}
+	else if(name === 'Usuario'){
+		Usuario.update({_id:key},
+			{$set: {"estado":data.estado}},
+			verificar	
+		);
+	}
+	
+	function verificar(err,numAffected){
+		if(err){
+			return service.json({status:"fail", name:name, description:"ID_OBJECT_DONT_EXIST", value:[{}]});	
+		}
+		else{
+			return service.json({ status: "ok", name:name, description:"COLLECTION_QUERY_OK", value: key});
+		}
 	}
 }
 
